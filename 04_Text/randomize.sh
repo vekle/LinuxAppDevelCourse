@@ -2,7 +2,7 @@
 
 delay=${1}
 
-if test sleep ${delay}; then
+if [[ ! $delay =~ ^[+-]?[0-9]+\.?[0-9]*$ ]]; then
     echo "Usage: ./randomize.sh <<delay>>"
     exit 1
 fi
