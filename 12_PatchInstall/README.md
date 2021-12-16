@@ -1,4 +1,4 @@
-# Out-of-tree build and install
+# Build and install in custom directory 
 ```shell
-cmake -DCMAKE_INSTALL_PREFIX=[installation path] .. && DESTDIR=[destination path] make all install
+cd [build directory] && cmake -DCMAKE_INSTALL_PREFIX=[installation path] [source directory] && DESTDIR=[destination path] make all install
 ```
