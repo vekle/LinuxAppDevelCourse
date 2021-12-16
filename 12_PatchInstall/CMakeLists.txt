@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.18)
 set(ProjectName "Localization")
 project(${ProjectName})
 
-add_custom_target(clean_gen rm -rf CMakeF* CMakeC* cmake_* Makefile *.po *.po~ *.pot install_manifest.txt)
 add_custom_target(clean_all rm -rf CMakeF* CMakeC* cmake_* Makefile *.po *.po~ *.pot install_manifest.txt guess_num ru_RU.UTF-8)
 
 add_custom_target(translate
@@ -15,6 +14,9 @@ add_custom_target(translate
                   COMMAND msgfmt ${PROJECT_BINARY_DIR}/ru.po -o ru_RU.UTF-8/LC_MESSAGES/guess_num.mo)    
 
 include_directories(${PROJECT_SOURCE_DIR})
+include(GNUInstallDirs)
+
+add_definitions(-DLOCALE_DIR="../${CMAKE_INSTALL_LOCALEDIR}")
 
 add_executable(guess_num guess_num.c)
 

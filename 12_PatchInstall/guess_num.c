@@ -8,7 +8,7 @@
 int main()
 {
     setlocale(LC_ALL, "");
-    bindtextdomain("guess_num", ".");
+    bindtextdomain("guess_num", LOCALE_DIR);
     textdomain("guess_num");
 
     printf(_("Guess a number from 1 to 100\n"));
